@@ -1,28 +1,49 @@
-﻿@[TOC](目录)
-# 前言
+﻿# 前言
+
 本文不含任何广告性质，仅供学习参考
+
 参考资料：
+
 [浅谈IC卡数据分析](https://blog.csdn.net/hiwoshixiaoyu/article/details/104048663)
+
 [智能卡 ISO14443 协议 解读](https://blog.csdn.net/wowocpp/article/details/79910800)
+
 [STM32F103ZET--RFID-RC522使用例程(战舰版)](https://blog.csdn.net/qq_28877125/article/details/80437095)
+
 源码参考：[RFID-RC522](http://www.pudn.com/Download/item/id/3930282.html)，不能使用，我进行了一定的修改。下载参考下方传送门。
+
 开发板：正点原子 STM32F103 精英版
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421155946240.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
 语言：C语言
+
 开发环境：Keil5
+
 **开发板**使用了 LED  SPI USART RFID-RC522模块 钥匙扣卡 M1卡
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421160054898.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421160217759.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
 **Win10软件** SSCOM串口调试  FlyMcu烧录（ps:电脑安装驱动CH340）
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2021042116032014.png)
+
 **安卓软件** NFC Writer （手机需有NFC功能）
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421160359827.jpg)
 
 ## 代码下载：
+
 [码云](https://gitee.com/ikaros-521/STM32_RFID-RC522_ReadWrite_card_demo) [GitHub](https://github.com/Ikaros-521/STM32_RFID-RC522_ReadWrite_card_demo)
+
 ## 功能介绍：
+
 寻卡-》防冲撞-》选卡-》验证密钥-》读取2扇区0区块数据-》写入数据到2扇区0区块-》再读取2扇区0区块数据。
+
 串口打印卡UID，验证结果，读取到的2扇区0区块数据等信息。
+
 # 接线
 
 ```javascript
@@ -36,41 +57,75 @@
 8--VCC <----->VCC
 ```
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421161954109.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
 ## STM32
+
 ### STM32F1开发指南(精英版)-库函数版本_V1.2
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421170032803.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
 ### STM32中文参考手册
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421165656116.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421165747239.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
 ## RFID-RC522
+
 参考：[https://www.cirmall.com/circuit/2149/](https://www.cirmall.com/circuit/2149/)
+
 ### RFID射频模块电路原理图
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421170353601.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
 
+
 # 使用图+效果图
+
 ## 一、先用手机软件NFC Writer读取空卡看看内容
+
 ### 1、打开软件和NFC（ps：我的手机是小米10）
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421162424273.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
 ### 2、将空卡贴于手机背部，弹出提示发现新卡，点击“好的”
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421162505838.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
 ### 3、上面的新卡片左滑到新卡片1，单击这个卡片
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421162538853.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
 ### 4、进入卡片信息详细页面
+
 #### 钥匙扣卡
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/202104211627247.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
 #### M1空白卡
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421162944336.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
 可以发现2张卡除了卡号和卡号异或值不同外，其他数据都一样，之后的例子都以**钥匙扣卡**举例。
+
 下图参考：[https://blog.csdn.net/hiwoshixiaoyu/article/details/104048663](https://blog.csdn.net/hiwoshixiaoyu/article/details/104048663)
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421162823909.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
 ## 二、编译、烧写程序
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421163244266.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
 ## 三、将钥匙扣卡发在模块上，打开串口，开始测试
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421164153213.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
 串口打印 
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421164445603.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
 注意 原卡 2扇区0区块数据为
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421164325942.png)
+
 我们放上卡后，进行了数据写入，之后读取到的数据都为DATA1的数据0.0
 
 ```c
@@ -80,10 +135,15 @@ unsigned char addr=0x08;
 status = PcdWrite(addr, DATA1);
 ```
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2021042116450648.png)
+
 此时数据写入完毕后，我们再将钥匙扣卡贴于手机，看看现在手机读取出来的结果
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421164826967.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
 OK，看样子写入成功了，那么到此例程就结束了。
+
 # 核心代码
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421165328154.png)
 
 ## main.c

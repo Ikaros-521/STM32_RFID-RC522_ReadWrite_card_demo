@@ -56,7 +56,7 @@ unsigned char addr=0x08;
 
 void RC522_Handle(void)
 {
-	u8 i = 0;
+    u8 i = 0;
     status = PcdRequest(PICC_REQALL,CT);//寻卡
 
     // printf("\r\nstatus>>>>>>%d\r\n", status);
@@ -72,7 +72,7 @@ void RC522_Handle(void)
         status = MI_ERR;
         ShowID(SN); // 串口打印卡的ID号 UID
 
-		// 难道就是为了做个判断吗。。。
+        // 难道就是为了做个判断吗。。。
         if((SN[0]==card_0[0])&&(SN[1]==card_0[1])&&(SN[2]==card_0[2])&&(SN[3]==card_0[3]))
         {
             card0_bit=1;
@@ -105,80 +105,80 @@ void RC522_Handle(void)
     else
     {
     }
-	 
+
     if(status == MI_OK)//选卡成功
     {
         status = MI_ERR;
-		// 验证A密钥 块地址 密码 SN
+        // 验证A密钥 块地址 密码 SN
         status = PcdAuthState(0x60, 0x09, KEY_A, SN);
-		if(status == MI_OK)//验证成功
-		{
-			printf("PcdAuthState() success\r\n");
-		}
-		else
-		{
-			printf("PcdAuthState() failed\r\n");
-		}
+        if(status == MI_OK)//验证成功
+        {
+            printf("PcdAuthState() success\r\n");
+        }
+        else
+        {
+            printf("PcdAuthState() failed\r\n");
+        }
     }
-	 
+
     if(status == MI_OK)//验证成功
     {
         status = MI_ERR;
-		// 读取M1卡一块数据 块地址 读取的数据
+        // 读取M1卡一块数据 块地址 读取的数据
         status = PcdRead(addr, DATA);
-		if(status == MI_OK)//读卡成功
-		{
-			// printf("RFID:%s\r\n", RFID);
-			printf("DATA:");
-			for(i = 0; i < 16; i++)
-			{
-				printf("%02x", DATA[i]);
-			}
-			printf("\r\n");
-		}
-		else
-		{
-			printf("PcdRead() failed\r\n");
-		}
+        if(status == MI_OK)//读卡成功
+        {
+            // printf("RFID:%s\r\n", RFID);
+            printf("DATA:");
+            for(i = 0; i < 16; i++)
+            {
+                printf("%02x", DATA[i]);
+            }
+            printf("\r\n");
+        }
+        else
+        {
+            printf("PcdRead() failed\r\n");
+        }
     }
-	
-	if(status == MI_OK)//读卡成功
-	{
-		status = MI_ERR;
-		// status = PcdWrite(addr, DATA0);
-		// 写数据到M1卡一块
-		status = PcdWrite(addr, DATA1);
-		if(status == MI_OK)//写卡成功
-		{
-			printf("PcdWrite() success\r\n");
-		}
-		else
-		{
-			printf("PcdWrite() failed\r\n");
-		}
-	}
-	
-	if(status == MI_OK)//写卡成功
+
+    if(status == MI_OK)//读卡成功
     {
         status = MI_ERR;
-		// 读取M1卡一块数据 块地址 读取的数据
-        status = PcdRead(addr, DATA);
-		if(status == MI_OK)//读卡成功
-		{
-			// printf("DATA:%s\r\n", DATA);
-			printf("DATA:");
-			for(i = 0; i < 16; i++)
-			{
-				printf("%02x", DATA[i]);
-			}
-			printf("\r\n");
-		}
-		else
-		{
-			printf("PcdRead() failed\r\n");
-		}
+        // status = PcdWrite(addr, DATA0);
+        // 写数据到M1卡一块
+        status = PcdWrite(addr, DATA1);
+        if(status == MI_OK)//写卡成功
+        {
+            printf("PcdWrite() success\r\n");
+        }
+        else
+        {
+            printf("PcdWrite() failed\r\n");
+        }
     }
-		
+
+    if(status == MI_OK)//写卡成功
+    {
+        status = MI_ERR;
+        // 读取M1卡一块数据 块地址 读取的数据
+        status = PcdRead(addr, DATA);
+        if(status == MI_OK)//读卡成功
+        {
+            // printf("DATA:%s\r\n", DATA);
+            printf("DATA:");
+            for(i = 0; i < 16; i++)
+            {
+                printf("%02x", DATA[i]);
+            }
+            printf("\r\n");
+        }
+        else
+        {
+            printf("PcdRead() failed\r\n");
+        }
+    }
+
     if(status == MI_OK)//读卡成功
     {
         status = MI_ERR;
@@ -241,12 +241,12 @@ void SPI1_Init(void)
     SPI_InitStructure.SPI_Mode = SPI_Mode_Master;																	//设置SPI工作模式:设置为主SPI
     SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;															//设置SPI的数据大小:SPI发送接收8位帧结构
     SPI_InitStructure.SPI_CPOL = SPI_CPOL_High;																		//串行同步时钟的空闲状态为高电平
-	// SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;
-	// SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge;																	//串行同步时钟的第一个跳变沿（下降）数据被采样
+    // SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;
+    // SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge;																	//串行同步时钟的第一个跳变沿（下降）数据被采样
     SPI_InitStructure.SPI_CPHA = SPI_CPHA_2Edge;																		//串行同步时钟的第二个跳变沿（上升）数据被采样
     SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;																			//NSS信号由硬件（NSS管脚）还是软件（使用SSI位）管理:内部NSS信号有SSI位控制
-	// RC522 SPI通讯时钟周期最小为100ns	即频率最大为10MHZ
-	// RC522 数据在下降沿变化
+    // RC522 SPI通讯时钟周期最小为100ns	即频率最大为10MHZ
+    // RC522 数据在下降沿变化
     SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_256;					//定义波特率预分频的值:波特率预分频值为256、传输速率36M/256=140.625KHz
     SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;														//指定数据传输从MSB位还是LSB位开始:数据传输从MSB位开始
     SPI_InitStructure.SPI_CRCPolynomial = 7;																			//CRC值计算的多项式
@@ -279,7 +279,7 @@ void SPI_RC522_SendByte ( u8 byte )
         RC522_DELAY();
         RC522_SCK_1();
         RC522_DELAY();
-		  
+
         byte <<= 1;
     }
 }
@@ -533,18 +533,18 @@ char PcdComMF522 ( u8 ucCommand, u8 * pInData, u8 ucInLenByte, u8 * pOutData, u3
 
     switch ( ucCommand )
     {
-		 case PCD_AUTHENT:		//Mifare认证
-			  ucIrqEn   = 0x12;		//允许错误中断请求ErrIEn  允许空闲中断IdleIEn
-			  ucWaitFor = 0x10;		//认证寻卡等待时候 查询空闲中断标志位
-			  break;
+    case PCD_AUTHENT:		//Mifare认证
+        ucIrqEn   = 0x12;		//允许错误中断请求ErrIEn  允许空闲中断IdleIEn
+        ucWaitFor = 0x10;		//认证寻卡等待时候 查询空闲中断标志位
+        break;
 
-		 case PCD_TRANSCEIVE:		//接收发送 发送接收
-			  ucIrqEn   = 0x77;		//允许TxIEn RxIEn IdleIEn LoAlertIEn ErrIEn TimerIEn
-			  ucWaitFor = 0x30;		//寻卡等待时候 查询接收中断标志位与 空闲中断标志位
-			  break;
+    case PCD_TRANSCEIVE:		//接收发送 发送接收
+        ucIrqEn   = 0x77;		//允许TxIEn RxIEn IdleIEn LoAlertIEn ErrIEn TimerIEn
+        ucWaitFor = 0x30;		//寻卡等待时候 查询接收中断标志位与 空闲中断标志位
+        break;
 
-		 default:
-			  break;
+    default:
+        break;
     }
 
     WriteRawRC ( ComIEnReg, ucIrqEn | 0x80 );		//IRqInv置位管脚IRQ与Status1Reg的IRq位的值相反
@@ -673,20 +673,20 @@ char PcdAnticoll ( u8 * pSnr )
     WriteRawRC ( BitFramingReg, 0x00);		//清理寄存器 停止收发
     ClearBitMask ( CollReg, 0x80 );			//清ValuesAfterColl所有接收的位在冲突后被清除
 
-	 /* 
-		参考ISO14443协议：https://blog.csdn.net/wowocpp/article/details/79910800
-		PCD 发送 SEL = ‘93’，NVB = ‘20’两个字节 
-		迫使所有的在场的PICC发回完整的UID CLn作为应答。
-	 */
+    /*
+    参考ISO14443协议：https://blog.csdn.net/wowocpp/article/details/79910800
+    PCD 发送 SEL = ‘93’，NVB = ‘20’两个字节
+    迫使所有的在场的PICC发回完整的UID CLn作为应答。
+    */
     ucComMF522Buf [ 0 ] = 0x93;	//卡片防冲突命令
     ucComMF522Buf [ 1 ] = 0x20;
 
-	 // 发送并接收数据 接收的数据存储于ucComMF522Buf
+    // 发送并接收数据 接收的数据存储于ucComMF522Buf
     cStatus = PcdComMF522 ( PCD_TRANSCEIVE, ucComMF522Buf, 2, ucComMF522Buf, & ulLen);//与卡片通信
 
     if ( cStatus == MI_OK)		//通信成功
     {
-		  // 收到的UID 存入pSnr
+        // 收到的UID 存入pSnr
         for ( uc = 0; uc < 4; uc ++ )
         {
             * ( pSnr + uc )  = ucComMF522Buf [ uc ];			//读出UID
@@ -756,25 +756,25 @@ char PcdSelect ( u8 * pSnr )
     u8 ucComMF522Buf [ MAXRLEN ];
     u32  ulLen;
 
-	// 防冲撞 0x93
+    // 防冲撞 0x93
     ucComMF522Buf [ 0 ] = PICC_ANTICOLL1;
-	// 假设没有冲突，PCD 指定NVB为70，此值表示PCD将发送完整的UID CLn，与40位UID CLn 匹配的PICC，以SAK作为应答
+    // 假设没有冲突，PCD 指定NVB为70，此值表示PCD将发送完整的UID CLn，与40位UID CLn 匹配的PICC，以SAK作为应答
     ucComMF522Buf [ 1 ] = 0x70;
     ucComMF522Buf [ 6 ] = 0;
 
-	// 3 4 5 6位存放UID，第7位一直异或。。。
+    // 3 4 5 6位存放UID，第7位一直异或。。。
     for ( uc = 0; uc < 4; uc ++ )
     {
         ucComMF522Buf [ uc + 2 ] = * ( pSnr + uc );
         ucComMF522Buf [ 6 ] ^= * ( pSnr + uc );
     }
 
-	// CRC(循环冗余校验)
+    // CRC(循环冗余校验)
     CalulateCRC ( ucComMF522Buf, 7, & ucComMF522Buf [ 7 ] );
 
     ClearBitMask ( Status2Reg, 0x08 );
 
-	// 发送并接收数据
+    // 发送并接收数据
     cStatus = PcdComMF522 ( PCD_TRANSCEIVE, ucComMF522Buf, 9, ucComMF522Buf, & ulLen );
 
     if ( ( cStatus == MI_OK ) && ( ulLen == 0x18 ) )
@@ -813,14 +813,14 @@ char PcdAuthState ( u8 ucAuth_mode, u8 ucAddr, u8 * pKey, u8 * pSnr )
 
     for ( uc = 0; uc < 6; uc ++ )
         ucComMF522Buf [ uc + 8 ] = * ( pSnr + uc );
-	
-	 // printf("char PcdAuthState ( u8 ucAuth_mode, u8 ucAddr, u8 * pKey, u8 * pSnr )\r\n");
-	 // printf("before PcdComMF522() ucComMF522Buf:%s\r\n", ucComMF522Buf);
 
-	// 验证密钥命令
+    // printf("char PcdAuthState ( u8 ucAuth_mode, u8 ucAddr, u8 * pKey, u8 * pSnr )\r\n");
+    // printf("before PcdComMF522() ucComMF522Buf:%s\r\n", ucComMF522Buf);
+
+    // 验证密钥命令
     cStatus = PcdComMF522 ( PCD_AUTHENT, ucComMF522Buf, 12, ucComMF522Buf, & ulLen );
-	
-	 // printf("after PcdComMF522() ucComMF522Buf:%s\r\n", ucComMF522Buf);
+
+    // printf("after PcdComMF522() ucComMF522Buf:%s\r\n", ucComMF522Buf);
 
     if ( ( cStatus != MI_OK ) || ( ! ( ReadRawRC ( Status2Reg ) & 0x08 ) ) )
     {
@@ -956,7 +956,7 @@ void IC_CMT ( u8 * UID, u8 * KEY, u8 RW, u8 * Dat )
 }
 
 // 显示卡的卡号，以十六进制显示
-void ShowID(u8 *p)	 
+void ShowID(u8 *p)
 {
     u8 num[9];
     u8 i;

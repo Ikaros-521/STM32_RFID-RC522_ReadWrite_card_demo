@@ -1,0 +1,463 @@
+Dependencies for Project 'SPI', Target 'RC522': (DO NOT MODIFY !)
+F (.\main.c)(0x607D2A83)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\RFID -I ..\HARDWARE\LED-IC:\Users\Administrator\Desktop\RFID-RC522\USER\RTE\_RC522-ID:\KELI\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-ID:\KELI\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+I (..\SYSTEM\delay\delay.h)(0x555AC82C)
+I (..\SYSTEM\sys\sys.h)(0x550F951C)
+I (..\USER\stm32f10x.h)(0x4D783CB4)
+I (..\CORE\core_cm3.h)(0x4D523B58)
+I (D:\KELI\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\USER\system_stm32f10x.h)(0x4D783CAA)
+I (..\USER\stm32f10x_conf.h)(0x5501900C)
+I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x50388DDC)
+I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
+I (..\SYSTEM\usart\usart.h)(0x50517A82)
+I (D:\KELI\ARM\ARMCC\include\stdio.h)(0x57F606B8)
+I (..\HARDWARE\RFID\rc522.h)(0x607CE9DE)
+I (..\HARDWARE\LED\led.h)(0x5CDE2D23)
+F (.\stm32f10x_it.c)(0x4EBEACB0)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\RFID -I ..\HARDWARE\LED-IC:\Users\Administrator\Desktop\RFID-RC522\USER\RTE\_RC522-ID:\KELI\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-ID:\KELI\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_it.o --omf_browse ..\obj\stm32f10x_it.crf --depend ..\obj\stm32f10x_it.d)
+I (stm32f10x_it.h)(0x4D99A426)
+I (stm32f10x.h)(0x4D783CB4)
+I (..\CORE\core_cm3.h)(0x4D523B58)
+I (D:\KELI\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (system_stm32f10x.h)(0x4D783CAA)
+I (stm32f10x_conf.h)(0x5501900C)
+I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
+I (..\USER\stm32f10x.h)(0x4D783CB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x50388DDC)
+I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
+F (.\system_stm32f10x.c)(0x4D99A426)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\RFID -I ..\HARDWARE\LED-IC:\Users\Administrator\Desktop\RFID-RC522\USER\RTE\_RC522-ID:\KELI\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-ID:\KELI\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\system_stm32f10x.o --omf_browse ..\obj\system_stm32f10x.crf --depend ..\obj\system_stm32f10x.d)
+I (stm32f10x.h)(0x4D783CB4)
+I (..\CORE\core_cm3.h)(0x4D523B58)
+I (D:\KELI\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (system_stm32f10x.h)(0x4D783CAA)
+I (stm32f10x_conf.h)(0x5501900C)
+I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
+I (..\USER\stm32f10x.h)(0x4D783CB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x50388DDC)
+I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
+F (..\HARDWARE\RFID\rc522.c)(0x607FD816)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\RFID -I ..\HARDWARE\LED-IC:\Users\Administrator\Desktop\RFID-RC522\USER\RTE\_RC522-ID:\KELI\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-ID:\KELI\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\rc522.o --omf_browse ..\obj\rc522.crf --depend ..\obj\rc522.d)
+I (..\SYSTEM\sys\sys.h)(0x550F951C)
+I (..\USER\stm32f10x.h)(0x4D783CB4)
+I (..\CORE\core_cm3.h)(0x4D523B58)
+I (D:\KELI\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\USER\system_stm32f10x.h)(0x4D783CAA)
+I (..\USER\stm32f10x_conf.h)(0x5501900C)
+I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x50388DDC)
+I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
+I (..\HARDWARE\RFID\rc522.h)(0x607CE9DE)
+I (..\SYSTEM\delay\delay.h)(0x555AC82C)
+I (..\SYSTEM\usart\usart.h)(0x50517A82)
+I (D:\KELI\ARM\ARMCC\include\stdio.h)(0x57F606B8)
+I (D:\KELI\ARM\ARMCC\include\string.h)(0x57F606B8)
+F (..\HARDWARE\LED\led.c)(0x5CDE2D23)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\RFID -I ..\HARDWARE\LED-IC:\Users\Administrator\Desktop\RFID-RC522\USER\RTE\_RC522-ID:\KELI\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-ID:\KELI\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\led.o --omf_browse ..\obj\led.crf --depend ..\obj\led.d)
+I (..\HARDWARE\LED\led.h)(0x5CDE2D23)
+I (..\SYSTEM\sys\sys.h)(0x550F951C)
+I (..\USER\stm32f10x.h)(0x4D783CB4)
+I (..\CORE\core_cm3.h)(0x4D523B58)
+I (D:\KELI\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\USER\system_stm32f10x.h)(0x4D783CAA)
+I (..\USER\stm32f10x_conf.h)(0x5501900C)
+I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x50388DDC)
+I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
+F (..\SYSTEM\delay\delay.c)(0x555AC82C)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\RFID -I ..\HARDWARE\LED-IC:\Users\Administrator\Desktop\RFID-RC522\USER\RTE\_RC522-ID:\KELI\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-ID:\KELI\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\delay.o --omf_browse ..\obj\delay.crf --depend ..\obj\delay.d)
+I (..\SYSTEM\delay\delay.h)(0x555AC82C)
+I (..\SYSTEM\sys\sys.h)(0x550F951C)
+I (..\USER\stm32f10x.h)(0x4D783CB4)
+I (..\CORE\core_cm3.h)(0x4D523B58)
+I (D:\KELI\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\USER\system_stm32f10x.h)(0x4D783CAA)
+I (..\USER\stm32f10x_conf.h)(0x5501900C)
+I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x50388DDC)
+I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
+F (..\SYSTEM\sys\sys.c)(0x5501849A)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\RFID -I ..\HARDWARE\LED-IC:\Users\Administrator\Desktop\RFID-RC522\USER\RTE\_RC522-ID:\KELI\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-ID:\KELI\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\sys.o --omf_browse ..\obj\sys.crf --depend ..\obj\sys.d)
+I (..\SYSTEM\sys\sys.h)(0x550F951C)
+I (..\USER\stm32f10x.h)(0x4D783CB4)
+I (..\CORE\core_cm3.h)(0x4D523B58)
+I (D:\KELI\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\USER\system_stm32f10x.h)(0x4D783CAA)
+I (..\USER\stm32f10x_conf.h)(0x5501900C)
+I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x50388DDC)
+I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
+F (..\SYSTEM\usart\usart.c)(0x550F9664)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\RFID -I ..\HARDWARE\LED-IC:\Users\Administrator\Desktop\RFID-RC522\USER\RTE\_RC522-ID:\KELI\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-ID:\KELI\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\usart.o --omf_browse ..\obj\usart.crf --depend ..\obj\usart.d)
+I (..\SYSTEM\sys\sys.h)(0x550F951C)
+I (..\USER\stm32f10x.h)(0x4D783CB4)
+I (..\CORE\core_cm3.h)(0x4D523B58)
+I (D:\KELI\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\USER\system_stm32f10x.h)(0x4D783CAA)
+I (..\USER\stm32f10x_conf.h)(0x5501900C)
+I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x50388DDC)
+I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
+I (..\SYSTEM\usart\usart.h)(0x50517A82)
+I (D:\KELI\ARM\ARMCC\include\stdio.h)(0x57F606B8)
+F (..\CORE\core_cm3.c)(0x4C0C587E)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\RFID -I ..\HARDWARE\LED-IC:\Users\Administrator\Desktop\RFID-RC522\USER\RTE\_RC522-ID:\KELI\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-ID:\KELI\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\core_cm3.o --omf_browse ..\obj\core_cm3.crf --depend ..\obj\core_cm3.d)
+I (D:\KELI\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+F (..\CORE\startup_stm32f10x_hd.s)(0x4D783CDE)(--cpu Cortex-M3 -g --apcs=interwork -IC:\Users\Administrator\Desktop\RFID-RC522\USER\RTE\_RC522-ID:\KELI\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-ID:\KELI\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 522" --pd "STM32F10X_HD SETA 1"--list .\startup_stm32f10x_hd.lst --xref -o ..\obj\startup_stm32f10x_hd.o --depend ..\obj\startup_stm32f10x_hd.d)
+F (..\STM32F10x_FWLib\src\misc.c)(0x4D783BB4)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\RFID -I ..\HARDWARE\LED-IC:\Users\Administrator\Desktop\RFID-RC522\USER\RTE\_RC522-ID:\KELI\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-ID:\KELI\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\misc.o --omf_browse ..\obj\misc.crf --depend ..\obj\misc.d)
+I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
+I (..\USER\stm32f10x.h)(0x4D783CB4)
+I (..\CORE\core_cm3.h)(0x4D523B58)
+I (D:\KELI\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\USER\system_stm32f10x.h)(0x4D783CAA)
+I (..\USER\stm32f10x_conf.h)(0x5501900C)
+I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x50388DDC)
+I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
+F (..\STM32F10x_FWLib\src\stm32f10x_fsmc.c)(0x5039863E)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\RFID -I ..\HARDWARE\LED-IC:\Users\Administrator\Desktop\RFID-RC522\USER\RTE\_RC522-ID:\KELI\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-ID:\KELI\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_fsmc.o --omf_browse ..\obj\stm32f10x_fsmc.crf --depend ..\obj\stm32f10x_fsmc.d)
+I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x50388DDC)
+I (..\USER\stm32f10x.h)(0x4D783CB4)
+I (..\CORE\core_cm3.h)(0x4D523B58)
+I (D:\KELI\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\USER\system_stm32f10x.h)(0x4D783CAA)
+I (..\USER\stm32f10x_conf.h)(0x5501900C)
+I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
+F (..\STM32F10x_FWLib\src\stm32f10x_gpio.c)(0x4D79EEC6)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\RFID -I ..\HARDWARE\LED-IC:\Users\Administrator\Desktop\RFID-RC522\USER\RTE\_RC522-ID:\KELI\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-ID:\KELI\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_gpio.o --omf_browse ..\obj\stm32f10x_gpio.crf --depend ..\obj\stm32f10x_gpio.d)
+I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
+I (..\USER\stm32f10x.h)(0x4D783CB4)
+I (..\CORE\core_cm3.h)(0x4D523B58)
+I (D:\KELI\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\USER\system_stm32f10x.h)(0x4D783CAA)
+I (..\USER\stm32f10x_conf.h)(0x5501900C)
+I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x50388DDC)
+I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
+F (..\STM32F10x_FWLib\src\stm32f10x_rcc.c)(0x4D783BB4)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\RFID -I ..\HARDWARE\LED-IC:\Users\Administrator\Desktop\RFID-RC522\USER\RTE\_RC522-ID:\KELI\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-ID:\KELI\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_rcc.o --omf_browse ..\obj\stm32f10x_rcc.crf --depend ..\obj\stm32f10x_rcc.d)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
+I (..\USER\stm32f10x.h)(0x4D783CB4)
+I (..\CORE\core_cm3.h)(0x4D523B58)
+I (D:\KELI\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\USER\system_stm32f10x.h)(0x4D783CAA)
+I (..\USER\stm32f10x_conf.h)(0x5501900C)
+I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x50388DDC)
+I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
+F (..\STM32F10x_FWLib\src\stm32f10x_tim.c)(0x4D783BB4)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\RFID -I ..\HARDWARE\LED-IC:\Users\Administrator\Desktop\RFID-RC522\USER\RTE\_RC522-ID:\KELI\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-ID:\KELI\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_tim.o --omf_browse ..\obj\stm32f10x_tim.crf --depend ..\obj\stm32f10x_tim.d)
+I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
+I (..\USER\stm32f10x.h)(0x4D783CB4)
+I (..\CORE\core_cm3.h)(0x4D523B58)
+I (D:\KELI\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\USER\system_stm32f10x.h)(0x4D783CAA)
+I (..\USER\stm32f10x_conf.h)(0x5501900C)
+I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x50388DDC)
+I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
+F (..\STM32F10x_FWLib\src\stm32f10x_usart.c)(0x4D783BB4)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\RFID -I ..\HARDWARE\LED-IC:\Users\Administrator\Desktop\RFID-RC522\USER\RTE\_RC522-ID:\KELI\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-ID:\KELI\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_usart.o --omf_browse ..\obj\stm32f10x_usart.crf --depend ..\obj\stm32f10x_usart.d)
+I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
+I (..\USER\stm32f10x.h)(0x4D783CB4)
+I (..\CORE\core_cm3.h)(0x4D523B58)
+I (D:\KELI\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\USER\system_stm32f10x.h)(0x4D783CAA)
+I (..\USER\stm32f10x_conf.h)(0x5501900C)
+I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x50388DDC)
+I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
+F (..\STM32F10x_FWLib\src\stm32f10x_spi.c)(0x4D783BB4)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\RFID -I ..\HARDWARE\LED-IC:\Users\Administrator\Desktop\RFID-RC522\USER\RTE\_RC522-ID:\KELI\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-ID:\KELI\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_spi.o --omf_browse ..\obj\stm32f10x_spi.crf --depend ..\obj\stm32f10x_spi.d)
+I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
+I (..\USER\stm32f10x.h)(0x4D783CB4)
+I (..\CORE\core_cm3.h)(0x4D523B58)
+I (D:\KELI\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\USER\system_stm32f10x.h)(0x4D783CAA)
+I (..\USER\stm32f10x_conf.h)(0x5501900C)
+I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x50388DDC)
+I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
+F (..\README.TXT)(0x5BAF9406)()

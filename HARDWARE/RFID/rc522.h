@@ -181,8 +181,4 @@ extern char* POINT_LAT_ON;
 extern char* POINT_LNG_OFF;
 extern char* POINT_LAT_OFF;
 
-
-
-
 #endif
-

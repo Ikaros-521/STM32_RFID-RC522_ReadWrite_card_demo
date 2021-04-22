@@ -1,6 +1,19 @@
 ﻿# 前言
 
-本文不含任何广告性质，仅供学习参考
+## 特别声明:
+
+- 本仓库发布的程序，仅用于测试和学习研究，禁止用于商业用途，不能保证其合法性，准确性，完整性和有效性，请根据情况自行判断。
+
+- 本人对任何脚本问题概不负责，包括但不限于由任何脚本错误导致的任何损失或损害。
+
+- 间接使用脚本的任何用户，包括但不限于建立VPS或在某些行为违反国家/地区法律或相关法规的情况下进行传播, 本人对于由此引起的任何隐私泄漏或其他后果概不负责。
+
+- 任何以任何方式查看此项目的人或直接或间接使用该项目的任何程序的使用者都应仔细阅读此声明。本人保留随时更改或补充此免责声明的权利。一旦使用并复制了任何相关脚本或Script项目的规则，则视为您已接受此免责声明。
+
+
+本文不含任何广告性质，仅供学习参考。**写卡**需谨慎！！！，不然可能会玩崩了。血的教训！！！
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210422124412824.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
 
 参考资料：
 
@@ -9,6 +22,10 @@
 [智能卡 ISO14443 协议 解读](https://blog.csdn.net/wowocpp/article/details/79910800)
 
 [STM32F103ZET--RFID-RC522使用例程(战舰版)](https://blog.csdn.net/qq_28877125/article/details/80437095)
+
+[M1卡使用说明书](https://wenku.baidu.com/view/50f8bff17c1cfad6195fa712.html)
+
+[M1卡介绍](https://www.cnblogs.com/ivantang/p/3904025.html)
 
 [STM32-RC522](http://www.pudn.com/Download/item/id/2857485.html)
 
@@ -42,11 +59,12 @@
 
 ## 功能介绍：
 
-寻卡-》防冲撞-》选卡-》验证密钥-》读取2扇区0区块数据-》写入数据到2扇区0区块-》再读取2扇区0区块数据。
+寻卡-》防冲撞-》选卡-》验证2扇区密钥-》读取2扇区0区块数据-》写入数据到2扇区0区块-》再读取2扇区0区块数据。
 
-串口打印卡UID，验证结果，读取到的2扇区0区块数据等信息。
+串口打印卡UID，验证结果，读取到的2扇区0区块数据等信息。（ps：实测发现0扇区和1扇区不能进行读取操作）
 
 **注意**：只有验证成功的扇区，才能对此扇区进行读写操作！
+
 
 ```c
 // 验证A密钥 块地址 密码 SN 
@@ -73,6 +91,7 @@ status = PcdRead(0x08, DATA);
 7--RST <----->PB0
 8--VCC <----->VCC
 ```
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421161954109.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
 
 ## STM32
@@ -95,7 +114,6 @@ status = PcdRead(0x08, DATA);
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421170353601.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
 
-
 # 使用图+效果图
 
 ## 测试程序0 RC522_Handle()
@@ -104,11 +122,13 @@ status = PcdRead(0x08, DATA);
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210422102505547.gif#pic_center)
 
+
 ### 一、先用手机软件NFC Writer读取空卡看看内容
 
 #### 1、打开软件和NFC（ps：我的手机是小米10）
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210421162424273.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0lrYXJvc181MjE=,size_16,color_FFFFFF,t_70)
+
 
 #### 2、将空卡贴于手机背部，弹出提示发现新卡，点击“好的”
 

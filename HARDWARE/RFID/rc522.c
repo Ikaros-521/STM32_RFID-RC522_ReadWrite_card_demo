@@ -214,6 +214,7 @@ void RC522_Handle(void)
 void RC522_Handle1(void)
 {
     u8 i = 0;
+	unsigned char test_addr=0x0F;
     status = PcdRequest(PICC_REQALL,CT);//寻卡
 
     // printf("\r\nstatus>>>>>>%d\r\n", status);
@@ -252,7 +253,7 @@ void RC522_Handle1(void)
         status = MI_ERR;
         // 验证A密钥 块地址 密码 SN 
 		// 注意：此处的块地址0x0F即3扇区3区块，此块地址只需要指向某一扇区就可以了，即3扇区为0x0C-0x0F这个范围都有效，且只能对验证过的扇区进行读写操作
-        status = PcdAuthState(0x60, 0x0F, KEY_A, SN);
+        status = PcdAuthState(0x60, test_addr, KEY_A, SN);
         if(status == MI_OK)//验证成功
         {
             printf("PcdAuthState(A) success\r\n");
@@ -264,7 +265,7 @@ void RC522_Handle1(void)
 			goto P1;
         }
 		// 验证B密钥 块地址 密码 SN 
-		status = PcdAuthState(0x61, 0x0F, KEY_B, SN);
+		status = PcdAuthState(0x61, test_addr, KEY_B, SN);
         if(status == MI_OK)//验证成功
         {
             printf("PcdAuthState(B) success\r\n");
@@ -279,7 +280,7 @@ void RC522_Handle1(void)
     {
         status = MI_ERR;
         // 读取M1卡一块数据 块地址 读取的数据 注意：因为上面验证的扇区是3扇区，所以只能对2扇区的数据进行读写，即0x0C-0x0F这个范围，超出范围读取失败。
-        status = PcdRead(0x0F, DATA);
+        status = PcdRead(test_addr, DATA);
         if(status == MI_OK)//读卡成功
         {
             // printf("RFID:%s\r\n", RFID);
@@ -300,7 +301,7 @@ void RC522_Handle1(void)
     {
         status = MI_ERR;
         // 写数据到M1卡一块
-        status = PcdWrite(0x0F, RFID1);
+        status = PcdWrite(test_addr, RFID1);
         if(status == MI_OK)//写卡成功
         {
             printf("PcdWrite(RFID1) success\r\n");
@@ -318,7 +319,7 @@ P1:
         status = MI_ERR;
         // 验证A密钥 块地址 密码 SN 
 		// 注意：此处的块地址0x0F即3扇区3区块，此块地址只需要指向某一扇区就可以了，即3扇区为0x0C-0x0F这个范围都有效，且只能对验证过的扇区进行读写操作
-        status = PcdAuthState(0x60, 0x0F, KEY_A1, SN);
+        status = PcdAuthState(0x60, test_addr, KEY_A1, SN);
         if(status == MI_OK)//验证成功
         {
             printf("PcdAuthState(A1) success\r\n");
@@ -328,7 +329,7 @@ P1:
             printf("PcdAuthState(A1) failed\r\n");
         }
 		// 验证B密钥 块地址 密码 SN 
-		status = PcdAuthState(0x61, 0x0F, KEY_B1, SN);
+		status = PcdAuthState(0x61, test_addr, KEY_B1, SN);
         if(status == MI_OK)//验证成功
         {
             printf("PcdAuthState(B1) success\r\n");
@@ -343,7 +344,7 @@ P1:
     {
         status = MI_ERR;
         // 读取M1卡一块数据 块地址 读取的数据 注意：因为上面验证的扇区是3扇区，所以只能对2扇区的数据进行读写，即0x0C-0x0F这个范围，超出范围读取失败。
-        status = PcdRead(0x0F, DATA);
+        status = PcdRead(test_addr, DATA);
         if(status == MI_OK)//读卡成功
         {
             // printf("RFID:%s\r\n", RFID);
@@ -364,7 +365,7 @@ P1:
     {
         status = MI_ERR;
         // 写数据到M1卡一块
-        status = PcdWrite(0x0F, RFID2);
+        status = PcdWrite(test_addr, RFID2);
         if(status == MI_OK)//写卡成功
         {
             printf("PcdWrite(RFID2) success\r\n");
@@ -380,7 +381,7 @@ P1:
     {
         status = MI_ERR;
         // 读取M1卡一块数据 块地址 读取的数据
-        status = PcdRead(0x0F, DATA);
+        status = PcdRead(test_addr, DATA);
         if(status == MI_OK)//读卡成功
         {
             // printf("DATA:%s\r\n", DATA);
@@ -400,6 +401,7 @@ P1:
     if(status == MI_OK)//读卡成功
     {
         status = MI_ERR;
+		printf("RC522_Handle1() run finished after 1 second!\r\n");
         delay_ms(1000);
     }
 }

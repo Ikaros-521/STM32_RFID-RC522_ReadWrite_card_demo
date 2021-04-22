@@ -160,6 +160,7 @@ void SPI1_Init(void);
 #define          RC522_MISO_GET()          GPIO_ReadInputDataBit ( GPIOA, GPIO_Pin_6 )
 
 void             RC522_Handle               (void);
+void             RC522_Handle1              (void);
 void             RC522_Init                 ( void );                       //初始化
 void             PcdReset                   ( void );                       //复位
 void             M500PcdConfigISOType       ( u8 type );                    //工作方式

@@ -26,7 +26,10 @@ int main(void)
     RC522_Init();       //初始化射频卡模块
     while(1)
     {
-        RC522_Handle();
+		// 测试程序0，完成addr读写读
+        // RC522_Handle();
+		// 测试程序1，完成0x0F块 验证KEY_A、KEY_B 读 写RFID1 验证KEY_A1、KEY_B1 读 写RFID2
+		RC522_Handle1();
 
         if(num % 20 == 0)
             LED0 = !LED0;

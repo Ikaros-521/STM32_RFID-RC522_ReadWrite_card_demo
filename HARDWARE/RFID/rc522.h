@@ -159,8 +159,8 @@ void SPI1_Init(void);
 
 #define          RC522_MISO_GET()          GPIO_ReadInputDataBit ( GPIOA, GPIO_Pin_6 )
 
-void             RC522_Handle               (void);
-void             RC522_Handle1              (void);
+void             RC522_Handle               (void);                         // 测试程序0，完成addr读写读
+void             RC522_Handle1              (void);                         // 测试程序1，完成0x0F块 验证KEY_A、KEY_B 读 写RFID1 验证KEY_A1、KEY_B1 读 写RFID2
 void             RC522_Init                 ( void );                       //初始化
 void             PcdReset                   ( void );                       //复位
 void             M500PcdConfigISOType       ( u8 type );                    //工作方式

@@ -27,9 +27,9 @@ int main(void)
     while(1)
     {
 		// 测试程序0，完成addr读写读
-        // RC522_Handle();
+        RC522_Handle();
 		// 测试程序1，完成0x0F块 验证KEY_A、KEY_B 读 写RFID1 验证KEY_A1、KEY_B1 读 写RFID2
-		RC522_Handle1();
+		// RC522_Handle1();
 
         if(num % 20 == 0)
             LED0 = !LED0;

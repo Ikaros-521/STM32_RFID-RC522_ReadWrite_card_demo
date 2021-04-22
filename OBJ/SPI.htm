@@ -3,11 +3,11 @@
 <title>Static Call Graph - [..\OBJ\SPI.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\SPI.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Thu Apr 22 10:43:32 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Thu Apr 22 10:51:19 2021
 <BR><P>
 <H3>Maximum Stack Usage =        176 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-__rt_entry_main &rArr; main &rArr; RC522_Handle1 &rArr; ShowID &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
+__rt_entry_main &rArr; main &rArr; RC522_Handle &rArr; ShowID &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 <P>
 <H3>
 Functions with no stack information
@@ -234,7 +234,7 @@ Global Symbols
 
 <P><STRONG><a name="[5a]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; RC522_Handle1 &rArr; ShowID &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; RC522_Handle &rArr; ShowID &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -258,12 +258,12 @@ Global Symbols
 
 <P><STRONG><a name="[5b]"></a>main</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176 + Unknown Stack Size
-<LI>Call Chain = main &rArr; RC522_Handle1 &rArr; ShowID &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
+<LI>Call Chain = main &rArr; RC522_Handle &rArr; ShowID &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_init
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Init
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_PriorityGroupConfig
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
 </UL>
@@ -428,8 +428,8 @@ Global Symbols
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_CMT
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
 </UL>
 
 <P><STRONG><a name="[76]"></a>PcdWrite</STRONG> (Thumb, 156 bytes, Stack size 48 bytes, rc522.o(.text))
@@ -440,8 +440,8 @@ Global Symbols
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_CMT
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
 </UL>
 
 <P><STRONG><a name="[78]"></a>PcdAuthState</STRONG> (Thumb, 116 bytes, Stack size 56 bytes, rc522.o(.text))
@@ -451,8 +451,8 @@ Global Symbols
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_CMT
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
 </UL>
 
 <P><STRONG><a name="[79]"></a>PcdSelect</STRONG> (Thumb, 114 bytes, Stack size 48 bytes, rc522.o(.text))
@@ -463,8 +463,8 @@ Global Symbols
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearBitMask
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_CMT
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
 </UL>
 
 <P><STRONG><a name="[7a]"></a>ShowID</STRONG> (Thumb, 170 bytes, Stack size 24 bytes, rc522.o(.text))
@@ -473,8 +473,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
 </UL>
 
 <P><STRONG><a name="[7c]"></a>PcdAnticoll</STRONG> (Thumb, 112 bytes, Stack size 48 bytes, rc522.o(.text))
@@ -486,8 +486,8 @@ Global Symbols
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_CMT
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
 </UL>
 
 <P><STRONG><a name="[7d]"></a>PcdRequest</STRONG> (Thumb, 84 bytes, Stack size 48 bytes, rc522.o(.text))
@@ -499,28 +499,16 @@ Global Symbols
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_CMT
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
 </UL>
 
-<P><STRONG><a name="[7e]"></a>RC522_Handle</STRONG> (Thumb, 670 bytes, Stack size 8 bytes, rc522.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRequest
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAnticoll
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ShowID
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdSelect
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAuthState
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdWrite
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRead
-</UL>
-
-<P><STRONG><a name="[66]"></a>RC522_Handle1</STRONG> (Thumb, 1126 bytes, Stack size 8 bytes, rc522.o(.text))
+<P><STRONG><a name="[66]"></a>RC522_Handle</STRONG> (Thumb, 670 bytes, Stack size 8 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176 + Unknown Stack Size
-<LI>Call Chain = RC522_Handle1 &rArr; ShowID &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
+<LI>Call Chain = RC522_Handle &rArr; ShowID &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRequest
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAnticoll
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ShowID
@@ -530,6 +518,18 @@ Global Symbols
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRead
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[7f]"></a>RC522_Handle1</STRONG> (Thumb, 1126 bytes, Stack size 8 bytes, rc522.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRequest
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAnticoll
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ShowID
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdSelect
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAuthState
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdWrite
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRead
 </UL>
 
 <P><STRONG><a name="[80]"></a>PcdAntennaOn</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, rc522.o(.text))
@@ -633,9 +633,9 @@ Global Symbols
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RC522_SendByte
 </UL>
 
-<P><STRONG><a name="[7f]"></a>delay_ms</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, delay.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<P><STRONG><a name="[7e]"></a>delay_ms</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, delay.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
 </UL>
 
 <P><STRONG><a name="[60]"></a>_sys_exit</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, usart.o(.text))
@@ -1165,9 +1165,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_file
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
+<BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ShowID
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
 </UL>
 
 <P><STRONG><a name="[9f]"></a>_printf_pre_padding</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, _printf_pad.o(.text))

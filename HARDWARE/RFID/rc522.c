@@ -318,7 +318,7 @@ P1:
         status = MI_ERR;
         // 验证A密钥 块地址 密码 SN 
 		// 注意：此处的块地址0x0F即3扇区3区块，此块地址只需要指向某一扇区就可以了，即3扇区为0x0C-0x0F这个范围都有效，且只能对验证过的扇区进行读写操作
-        status = PcdAuthState(0x60, 0x0F, KEY_A2, SN);
+        status = PcdAuthState(0x60, 0x0F, KEY_A1, SN);
         if(status == MI_OK)//验证成功
         {
             printf("PcdAuthState(A1) success\r\n");
@@ -328,7 +328,7 @@ P1:
             printf("PcdAuthState(A1) failed\r\n");
         }
 		// 验证B密钥 块地址 密码 SN 
-		status = PcdAuthState(0x61, 0x0F, KEY_B3, SN);
+		status = PcdAuthState(0x61, 0x0F, KEY_B1, SN);
         if(status == MI_OK)//验证成功
         {
             printf("PcdAuthState(B1) success\r\n");

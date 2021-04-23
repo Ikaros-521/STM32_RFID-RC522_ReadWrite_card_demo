@@ -3,11 +3,11 @@
 <title>Static Call Graph - [..\OBJ\SPI.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\SPI.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Fri Apr 23 10:16:03 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Fri Apr 23 14:04:20 2021
 <BR><P>
-<H3>Maximum Stack Usage =        176 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        248 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-__rt_entry_main &rArr; main &rArr; RC522_Handle &rArr; ShowID &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
+__rt_entry_main &rArr; main &rArr; IC_RW &rArr; ShowID &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 <P>
 <H3>
 Functions with no stack information
@@ -233,8 +233,8 @@ Global Symbols
 <P><STRONG><a name="[d1]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[5a]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 176 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; RC522_Handle &rArr; ShowID &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 248 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; IC_RW &rArr; ShowID &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -256,16 +256,18 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
 </UL>
 
-<P><STRONG><a name="[5b]"></a>main</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 176 + Unknown Stack Size
-<LI>Call Chain = main &rArr; RC522_Handle &rArr; ShowID &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
+<P><STRONG><a name="[5b]"></a>main</STRONG> (Thumb, 124 bytes, Stack size 40 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 248 + Unknown Stack Size
+<LI>Call Chain = main &rArr; IC_RW &rArr; ShowID &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_init
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Init
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_PriorityGroupConfig
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_RW
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
@@ -300,297 +302,298 @@ Global Symbols
 <P><STRONG><a name="[49]"></a>SystemInit</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, system_stm32f10x.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = SystemInit &rArr; SetSysClock &rArr; SetSysClockTo72
 </UL>
-<BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClock
+<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClock
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(.text)
 </UL>
 <P><STRONG><a name="[d4]"></a>SystemCoreClockUpdate</STRONG> (Thumb, 142 bytes, Stack size 8 bytes, system_stm32f10x.o(.text), UNUSED)
 
-<P><STRONG><a name="[69]"></a>SPI_RC522_SendByte</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, rc522.o(.text))
+<P><STRONG><a name="[6b]"></a>SPI_RC522_SendByte</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SPI_RC522_SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
-<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 </UL>
-<BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
+<BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
 </UL>
 
-<P><STRONG><a name="[6d]"></a>WriteRawRC</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, rc522.o(.text))
+<P><STRONG><a name="[6f]"></a>WriteRawRC</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = WriteRawRC &rArr; SPI_RC522_SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RC522_SendByte
+<BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RC522_SendByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdReset
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M500PcdConfigISOType
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRequest
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAnticoll
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalulateCRC
-<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearBitMask
-<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetBitMask
+<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdReset
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M500PcdConfigISOType
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRequest
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAnticoll
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalulateCRC
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearBitMask
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetBitMask
 </UL>
 
-<P><STRONG><a name="[6e]"></a>SPI_RC522_ReadByte</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, rc522.o(.text))
+<P><STRONG><a name="[70]"></a>SPI_RC522_ReadByte</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SPI_RC522_ReadByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
-<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
+<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
+<BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
 </UL>
 
-<P><STRONG><a name="[70]"></a>ReadRawRC</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, rc522.o(.text))
+<P><STRONG><a name="[72]"></a>ReadRawRC</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = ReadRawRC &rArr; SPI_RC522_ReadByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RC522_ReadByte
-<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RC522_SendByte
+<BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RC522_ReadByte
+<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RC522_SendByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdReset
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAntennaOn
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAuthState
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalulateCRC
-<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearBitMask
-<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetBitMask
+<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdReset
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAntennaOn
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAuthState
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalulateCRC
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearBitMask
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetBitMask
 </UL>
 
-<P><STRONG><a name="[71]"></a>SetBitMask</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, rc522.o(.text))
+<P><STRONG><a name="[73]"></a>SetBitMask</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = SetBitMask &rArr; ReadRawRC &rArr; SPI_RC522_ReadByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
+<BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
 </UL>
-<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAntennaOn
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRequest
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAnticoll
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalulateCRC
-<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
+<BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAntennaOn
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRequest
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAnticoll
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalulateCRC
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
 </UL>
 
-<P><STRONG><a name="[72]"></a>ClearBitMask</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, rc522.o(.text))
+<P><STRONG><a name="[74]"></a>ClearBitMask</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = ClearBitMask &rArr; ReadRawRC &rArr; SPI_RC522_ReadByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
+<BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAntennaOff
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M500PcdConfigISOType
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRequest
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAnticoll
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdSelect
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalulateCRC
-<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAntennaOff
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M500PcdConfigISOType
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRequest
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAnticoll
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdSelect
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalulateCRC
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
 </UL>
 
-<P><STRONG><a name="[73]"></a>PcdComMF522</STRONG> (Thumb, 306 bytes, Stack size 48 bytes, rc522.o(.text))
+<P><STRONG><a name="[75]"></a>PcdComMF522</STRONG> (Thumb, 306 bytes, Stack size 48 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = PcdComMF522 &rArr; ClearBitMask &rArr; ReadRawRC &rArr; SPI_RC522_ReadByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearBitMask
-<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetBitMask
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
+<BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearBitMask
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetBitMask
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdHalt
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRequest
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAnticoll
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdSelect
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAuthState
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdWrite
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRead
+<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdHalt
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRequest
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAnticoll
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdSelect
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAuthState
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdWrite
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRead
 </UL>
 
-<P><STRONG><a name="[74]"></a>CalulateCRC</STRONG> (Thumb, 108 bytes, Stack size 24 bytes, rc522.o(.text))
+<P><STRONG><a name="[76]"></a>CalulateCRC</STRONG> (Thumb, 108 bytes, Stack size 24 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = CalulateCRC &rArr; ClearBitMask &rArr; ReadRawRC &rArr; SPI_RC522_ReadByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearBitMask
-<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetBitMask
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
+<BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearBitMask
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetBitMask
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdHalt
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdSelect
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdWrite
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRead
+<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdHalt
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdSelect
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdWrite
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRead
 </UL>
 
-<P><STRONG><a name="[75]"></a>PcdRead</STRONG> (Thumb, 84 bytes, Stack size 48 bytes, rc522.o(.text))
+<P><STRONG><a name="[77]"></a>PcdRead</STRONG> (Thumb, 84 bytes, Stack size 48 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = PcdRead &rArr; PcdComMF522 &rArr; ClearBitMask &rArr; ReadRawRC &rArr; SPI_RC522_ReadByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalulateCRC
-<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
+<BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalulateCRC
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_CMT
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_data_break
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
+<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_data_break
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_RW
 </UL>
 
-<P><STRONG><a name="[76]"></a>PcdWrite</STRONG> (Thumb, 156 bytes, Stack size 48 bytes, rc522.o(.text))
+<P><STRONG><a name="[78]"></a>PcdWrite</STRONG> (Thumb, 156 bytes, Stack size 48 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = PcdWrite &rArr; PcdComMF522 &rArr; ClearBitMask &rArr; ReadRawRC &rArr; SPI_RC522_ReadByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalulateCRC
-<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
-<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+<BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalulateCRC
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_CMT
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
+<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_RW
 </UL>
 
-<P><STRONG><a name="[78]"></a>PcdAuthState</STRONG> (Thumb, 116 bytes, Stack size 56 bytes, rc522.o(.text))
+<P><STRONG><a name="[7a]"></a>PcdAuthState</STRONG> (Thumb, 116 bytes, Stack size 56 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = PcdAuthState &rArr; PcdComMF522 &rArr; ClearBitMask &rArr; ReadRawRC &rArr; SPI_RC522_ReadByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
+<BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_CMT
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_data_break
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
+<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_data_break
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_RW
 </UL>
 
-<P><STRONG><a name="[79]"></a>PcdSelect</STRONG> (Thumb, 114 bytes, Stack size 48 bytes, rc522.o(.text))
+<P><STRONG><a name="[7b]"></a>PcdSelect</STRONG> (Thumb, 114 bytes, Stack size 48 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = PcdSelect &rArr; PcdComMF522 &rArr; ClearBitMask &rArr; ReadRawRC &rArr; SPI_RC522_ReadByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalulateCRC
-<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearBitMask
+<BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalulateCRC
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearBitMask
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_CMT
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_data_break
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
+<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_data_break
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_RW
 </UL>
 
-<P><STRONG><a name="[7a]"></a>ShowID</STRONG> (Thumb, 170 bytes, Stack size 24 bytes, rc522.o(.text))
+<P><STRONG><a name="[7c]"></a>ShowID</STRONG> (Thumb, 170 bytes, Stack size 24 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168 + Unknown Stack Size
 <LI>Call Chain = ShowID &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_data_break
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
+<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_data_break
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_RW
 </UL>
 
-<P><STRONG><a name="[7c]"></a>PcdAnticoll</STRONG> (Thumb, 112 bytes, Stack size 48 bytes, rc522.o(.text))
+<P><STRONG><a name="[7e]"></a>PcdAnticoll</STRONG> (Thumb, 112 bytes, Stack size 48 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = PcdAnticoll &rArr; PcdComMF522 &rArr; ClearBitMask &rArr; ReadRawRC &rArr; SPI_RC522_ReadByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearBitMask
-<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetBitMask
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
+<BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearBitMask
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetBitMask
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_CMT
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_data_break
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
+<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_data_break
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_RW
 </UL>
 
-<P><STRONG><a name="[7d]"></a>PcdRequest</STRONG> (Thumb, 84 bytes, Stack size 48 bytes, rc522.o(.text))
+<P><STRONG><a name="[7f]"></a>PcdRequest</STRONG> (Thumb, 84 bytes, Stack size 48 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = PcdRequest &rArr; PcdComMF522 &rArr; ClearBitMask &rArr; ReadRawRC &rArr; SPI_RC522_ReadByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearBitMask
-<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetBitMask
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
+<BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearBitMask
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetBitMask
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WaitCardOff
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_CMT
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_data_break
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_data_break
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_RW
 </UL>
 
-<P><STRONG><a name="[66]"></a>RC522_Handle</STRONG> (Thumb, 700 bytes, Stack size 8 bytes, rc522.o(.text))
+<P><STRONG><a name="[68]"></a>RC522_Handle</STRONG> (Thumb, 700 bytes, Stack size 8 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176 + Unknown Stack Size
 <LI>Call Chain = RC522_Handle &rArr; ShowID &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRequest
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAnticoll
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ShowID
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdSelect
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAuthState
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdWrite
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRead
+<BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRequest
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAnticoll
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ShowID
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdSelect
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAuthState
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdWrite
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRead
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[7f]"></a>RC522_Handle1</STRONG> (Thumb, 1260 bytes, Stack size 16 bytes, rc522.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRequest
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAnticoll
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ShowID
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdSelect
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAuthState
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdWrite
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRead
+<P><STRONG><a name="[80]"></a>RC522_Handle1</STRONG> (Thumb, 1260 bytes, Stack size 16 bytes, rc522.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRequest
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAnticoll
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ShowID
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdSelect
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAuthState
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdWrite
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRead
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
 
-<P><STRONG><a name="[80]"></a>RC522_data_break</STRONG> (Thumb, 984 bytes, Stack size 552 bytes, rc522.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRequest
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAnticoll
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ShowID
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdSelect
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAuthState
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRead
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<P><STRONG><a name="[81]"></a>RC522_data_break</STRONG> (Thumb, 962 bytes, Stack size 288 bytes, rc522.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRequest
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAnticoll
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ShowID
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdSelect
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAuthState
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRead
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 
-<P><STRONG><a name="[82]"></a>PcdAntennaOn</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, rc522.o(.text))
+<P><STRONG><a name="[83]"></a>PcdAntennaOn</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = PcdAntennaOn &rArr; SetBitMask &rArr; ReadRawRC &rArr; SPI_RC522_ReadByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetBitMask
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
+<BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetBitMask
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
 </UL>
-<BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M500PcdConfigISOType
+<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M500PcdConfigISOType
 </UL>
 
-<P><STRONG><a name="[83]"></a>M500PcdConfigISOType</STRONG> (Thumb, 84 bytes, Stack size 8 bytes, rc522.o(.text))
+<P><STRONG><a name="[84]"></a>M500PcdConfigISOType</STRONG> (Thumb, 84 bytes, Stack size 8 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = M500PcdConfigISOType &rArr; PcdAntennaOn &rArr; SetBitMask &rArr; ReadRawRC &rArr; SPI_RC522_ReadByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAntennaOn
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearBitMask
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
+<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAntennaOn
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearBitMask
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
 </UL>
 <BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Init
 </UL>
 
-<P><STRONG><a name="[84]"></a>PcdReset</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, rc522.o(.text))
+<P><STRONG><a name="[85]"></a>PcdReset</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = PcdReset &rArr; ReadRawRC &rArr; SPI_RC522_ReadByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
-<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
+<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
 </UL>
 <BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Init
 </UL>
 
-<P><STRONG><a name="[85]"></a>SPI1_Init</STRONG> (Thumb, 224 bytes, Stack size 32 bytes, rc522.o(.text))
+<P><STRONG><a name="[86]"></a>SPI1_Init</STRONG> (Thumb, 224 bytes, Stack size 32 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = SPI1_Init &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Init
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Cmd
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Init
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Cmd
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Init
 </UL>
@@ -598,46 +601,55 @@ Global Symbols
 <P><STRONG><a name="[65]"></a>RC522_Init</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, rc522.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = RC522_Init &rArr; M500PcdConfigISOType &rArr; PcdAntennaOn &rArr; SetBitMask &rArr; ReadRawRC &rArr; SPI_RC522_ReadByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI1_Init
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdReset
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M500PcdConfigISOType
+<BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI1_Init
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdReset
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M500PcdConfigISOType
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[8b]"></a>PcdAntennaOff</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, rc522.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearBitMask
+<P><STRONG><a name="[8c]"></a>PcdAntennaOff</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, rc522.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearBitMask
 </UL>
 
-<P><STRONG><a name="[8c]"></a>PcdHalt</STRONG> (Thumb, 50 bytes, Stack size 32 bytes, rc522.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalulateCRC
-<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
+<P><STRONG><a name="[8d]"></a>PcdHalt</STRONG> (Thumb, 50 bytes, Stack size 32 bytes, rc522.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = PcdHalt &rArr; PcdComMF522 &rArr; ClearBitMask &rArr; ReadRawRC &rArr; SPI_RC522_ReadByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_CMT
+<BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalulateCRC
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdComMF522
+</UL>
+<BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_RW
 </UL>
 
-<P><STRONG><a name="[8d]"></a>IC_CMT</STRONG> (Thumb, 72 bytes, Stack size 24 bytes, rc522.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdHalt
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRequest
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAnticoll
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdSelect
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAuthState
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdWrite
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRead
+<P><STRONG><a name="[67]"></a>IC_RW</STRONG> (Thumb, 342 bytes, Stack size 40 bytes, rc522.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
+<LI>Call Chain = IC_RW &rArr; ShowID &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdHalt
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRequest
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAnticoll
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ShowID
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdSelect
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdAuthState
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdWrite
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRead
+</UL>
+<BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[8e]"></a>WaitCardOff</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, rc522.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRequest
+<BR><BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdRequest
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
 
 <P><STRONG><a name="[64]"></a>LED_Init</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, led.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = LED_Init &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
-<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -650,18 +662,19 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[6c]"></a>delay_us</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, delay.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdReset
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M500PcdConfigISOType
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RC522_ReadByte
-<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RC522_SendByte
+<P><STRONG><a name="[6e]"></a>delay_us</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, delay.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdReset
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M500PcdConfigISOType
+<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RC522_ReadByte
+<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RC522_SendByte
 </UL>
 
-<P><STRONG><a name="[7e]"></a>delay_ms</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, delay.o(.text))
+<P><STRONG><a name="[66]"></a>delay_ms</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, delay.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WaitCardOff
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_data_break
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_data_break
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[60]"></a>_sys_exit</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, usart.o(.text))
@@ -678,8 +691,8 @@ Global Symbols
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -906,18 +919,18 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphResetCmd
 </UL>
 
-<P><STRONG><a name="[88]"></a>GPIO_Init</STRONG> (Thumb, 278 bytes, Stack size 24 bytes, stm32f10x_gpio.o(.text))
+<P><STRONG><a name="[89]"></a>GPIO_Init</STRONG> (Thumb, 278 bytes, Stack size 24 bytes, stm32f10x_gpio.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI1_Init
+<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI1_Init
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
 </UL>
 
 <P><STRONG><a name="[d7]"></a>GPIO_StructInit</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
 
-<P><STRONG><a name="[6f]"></a>GPIO_ReadInputDataBit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RC522_ReadByte
+<P><STRONG><a name="[71]"></a>GPIO_ReadInputDataBit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RC522_ReadByte
 </UL>
 
 <P><STRONG><a name="[d8]"></a>GPIO_ReadInputData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
@@ -926,22 +939,22 @@ Global Symbols
 
 <P><STRONG><a name="[da]"></a>GPIO_ReadOutputData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
 
-<P><STRONG><a name="[6a]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdReset
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RC522_ReadByte
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
-<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RC522_SendByte
+<P><STRONG><a name="[6c]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdReset
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
+<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RC522_ReadByte
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
+<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RC522_SendByte
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Init
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
 </UL>
 
-<P><STRONG><a name="[6b]"></a>GPIO_ResetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdReset
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RC522_ReadByte
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
-<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RC522_SendByte
+<P><STRONG><a name="[6d]"></a>GPIO_ResetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdReset
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadRawRC
+<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RC522_ReadByte
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteRawRC
+<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RC522_SendByte
 </UL>
 
 <P><STRONG><a name="[db]"></a>GPIO_WriteBit</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
@@ -1013,14 +1026,14 @@ Global Symbols
 
 <P><STRONG><a name="[f5]"></a>RCC_AHBPeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[86]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI1_Init
+<P><STRONG><a name="[87]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI1_Init
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
 </UL>
 
-<P><STRONG><a name="[87]"></a>RCC_APB1PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI1_Init
+<P><STRONG><a name="[88]"></a>RCC_APB1PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI1_Init
 </UL>
 
 <P><STRONG><a name="[97]"></a>RCC_APB2PeriphResetCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
@@ -1131,10 +1144,10 @@ Global Symbols
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphResetCmd
 </UL>
 
-<P><STRONG><a name="[89]"></a>SPI_Init</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, stm32f10x_spi.o(.text))
+<P><STRONG><a name="[8a]"></a>SPI_Init</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, stm32f10x_spi.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SPI_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI1_Init
+<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI1_Init
 </UL>
 
 <P><STRONG><a name="[9f]"></a>I2S_Init</STRONG> (Thumb, 226 bytes, Stack size 56 bytes, stm32f10x_spi.o(.text), UNUSED)
@@ -1145,8 +1158,8 @@ Global Symbols
 
 <P><STRONG><a name="[114]"></a>I2S_StructInit</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f10x_spi.o(.text), UNUSED)
 
-<P><STRONG><a name="[8a]"></a>SPI_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_spi.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI1_Init
+<P><STRONG><a name="[8b]"></a>SPI_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_spi.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI1_Init
 </UL>
 
 <P><STRONG><a name="[115]"></a>I2S_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_spi.o(.text), UNUSED)
@@ -1185,16 +1198,17 @@ Global Symbols
 
 <P><STRONG><a name="[126]"></a>__use_no_semihosting</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi_2.o(.text), UNUSED)
 
-<P><STRONG><a name="[7b]"></a>__2printf</STRONG> (Thumb, 20 bytes, Stack size 24 bytes, noretval__2printf.o(.text))
+<P><STRONG><a name="[7d]"></a>__2printf</STRONG> (Thumb, 20 bytes, Stack size 24 bytes, noretval__2printf.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144 + Unknown Stack Size
 <LI>Call Chain = __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_file
 </UL>
-<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_data_break
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ShowID
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
+<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_data_break
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle1
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ShowID
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_Handle
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IC_RW
 </UL>
 
 <P><STRONG><a name="[a2]"></a>_printf_pre_padding</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, _printf_pad.o(.text))
@@ -1240,18 +1254,18 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_common
 </UL>
 
-<P><STRONG><a name="[77]"></a>__aeabi_memcpy</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdWrite
+<P><STRONG><a name="[79]"></a>__aeabi_memcpy</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PcdWrite
 </UL>
 
 <P><STRONG><a name="[a8]"></a>__rt_memcpy</STRONG> (Thumb, 138 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<BR><BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 
 <P><STRONG><a name="[128]"></a>_memcpy_lastbytes</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_v6.o(.text), UNUSED)
 
-<P><STRONG><a name="[81]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_data_break
+<P><STRONG><a name="[82]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC522_data_break
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_memcpy
 </UL>
 
@@ -1308,7 +1322,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ferror
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_common
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 
 <P><STRONG><a name="[ab]"></a>_printf_char_common</STRONG> (Thumb, 32 bytes, Stack size 64 bytes, _printf_char_common.o(.text))
@@ -1358,16 +1372,16 @@ Global Symbols
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[68]"></a>SetSysClockTo72</STRONG> (Thumb, 214 bytes, Stack size 12 bytes, system_stm32f10x.o(.text))
+<P><STRONG><a name="[6a]"></a>SetSysClockTo72</STRONG> (Thumb, 214 bytes, Stack size 12 bytes, system_stm32f10x.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = SetSysClockTo72
 </UL>
-<BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClock
+<BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClock
 </UL>
 
-<P><STRONG><a name="[67]"></a>SetSysClock</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, system_stm32f10x.o(.text))
+<P><STRONG><a name="[69]"></a>SetSysClock</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, system_stm32f10x.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = SetSysClock &rArr; SetSysClockTo72
 </UL>
-<BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClockTo72
+<BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClockTo72
 </UL>
 <BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 </UL>

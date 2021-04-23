@@ -414,7 +414,7 @@ void RC522_data_break(void)
     u8 i = 0;
     u8 break_KEY[6]= {0, 0, 0, 0, 0, 0};
     // 密码字符数组
-    u8 key_arr[257] = {
+/*    u8 key_arr[257] = {
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
         16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
         32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47,
@@ -432,6 +432,7 @@ void RC522_data_break(void)
         224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239,
         240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255
     };
+*/
 	
 	u8 key_arr2[257] = {
 		255, 254, 253, 252, 251, 250, 249, 248, 247, 246, 245, 244, 243, 242, 241, 240, 
@@ -1327,25 +1328,83 @@ char PcdHalt( void )
     return MI_OK;
 }
 
-
-void IC_CMT ( u8 * UID, u8 * KEY, u8 RW, u8 * Dat )
+// UID为你要修改的卡的UID key_type：0为KEYA，非0为KEYB KEY为密钥 RW:1是读，0是写 data_addr为修改的地址 data为数据内容
+void IC_RW ( u8 * UID, u8 key_type, u8 * KEY, u8 RW, u8 data_addr, u8 * data )
 {
+	char status;
+	u8 i = 0;
     u8 ucArray_ID [ 4 ] = { 0 };//先后存放IC卡的类型和UID(IC卡序列号)
 
-    PcdRequest ( 0x52, ucArray_ID );//寻卡
+    status = PcdRequest ( 0x52, ucArray_ID );//寻卡
+	if(status == MI_OK)
+		ShowID(ucArray_ID);
+	else
+		return;
 
-    PcdAnticoll ( ucArray_ID );//防冲撞
+    status = PcdAnticoll ( ucArray_ID );//防冲撞
+	if(status != MI_OK)
+		return;
 
-    PcdSelect ( UID );//选定卡
+    status = PcdSelect ( UID );//选定卡
+	if(status != MI_OK)
+	{
+		printf("UID don't match\r\n");
+		return;
+	}
+		
+	if(0 == key_type)
+		status = PcdAuthState ( KEYA, data_addr, KEY, UID );//校验
+	else
+		status = PcdAuthState ( KEYB, data_addr, KEY, UID );//校验
 
-    PcdAuthState ( KEYA, 0x10, KEY, UID );//校验
-
+	if(status != MI_OK)
+	{
+		printf("KEY don't match\r\n");
+		return;
+	}
+	
     if ( RW )//读写选择，1是读，0是写
-        PcdRead ( 0x10, Dat );
+    {
+		status = PcdRead ( data_addr, data );
+		if(status == MI_OK)
+		{
+			printf("data:");
+			for(i = 0; i < 16; i++)
+            {
+                printf("%02x", data[i]);
+            }
+            printf("\r\n");
+		}
+		else
+		{
+			printf("PcdRead() failed\r\n");
+			return;
+		}
+	}
     else
-        PcdWrite ( 0x10, Dat );
+	{
+        status = PcdWrite ( data_addr, data );
+		if(status == MI_OK)
+		{
+			printf("PcdWrite() finished\r\n");
+		}
+		else
+		{
+			printf("PcdWrite() failed\r\n");
+			return;
+		}
+	}
 
-    PcdHalt ();
+    status = PcdHalt ();
+	if(status == MI_OK)
+	{
+		printf("PcdHalt() finished\r\n");
+	}
+	else
+	{
+		printf("PcdHalt() failed\r\n");
+		return;
+	}
 }
 
 // 显示卡的卡号，以十六进制显示

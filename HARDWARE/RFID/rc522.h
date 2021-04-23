@@ -178,6 +178,7 @@ char             PcdWrite                   ( u8 ucAddr, u8 * pData );
 char             PcdRead                    ( u8 ucAddr, u8 * pData );
 void             ShowID                     (u8 *p);	                     //显示卡的卡号，以十六进制显示
 void             WaitCardOff                (void);                         //等待卡离开
+void             IC_RW                      ( u8 * UID, u8 key_type, u8 * KEY, u8 RW, u8 data_addr, u8 * data ); // UID为你要修改的卡的UID key_type：0为KEYA，非0为KEYB KEY为密钥 RW:1是读，0是写 data_addr为修改的地址 data为数据内容
 
 extern char* POINT_LNG;
 extern char* POINT_LAT;

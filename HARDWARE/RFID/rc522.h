@@ -109,6 +109,10 @@
 #define     RFU3E                 0x3E
 #define     RFU3F		  		        0x3F
 
+#define     REQ_ALL               0x52
+#define     KEYA                  0x60
+#define     KEYB                  0x61
+
 /////////////////////////////////////////////////////////////////////
 //和MF522通讯时返回的错误代码
 /////////////////////////////////////////////////////////////////////
@@ -172,7 +176,8 @@ char             PcdSelect                  ( u8 * pSnr );
 char             PcdAuthState               ( u8 ucAuth_mode, u8 ucAddr, u8 * pKey, u8 * pSnr );
 char             PcdWrite                   ( u8 ucAddr, u8 * pData );
 char             PcdRead                    ( u8 ucAddr, u8 * pData );
-void ShowID(u8 *p);	 //显示卡的卡号，以十六进制显示
+void             ShowID                     (u8 *p);	                     //显示卡的卡号，以十六进制显示
+void             WaitCardOff                (void);                         //等待卡离开
 
 extern char* POINT_LNG;
 extern char* POINT_LAT;

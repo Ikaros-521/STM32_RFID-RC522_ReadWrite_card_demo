@@ -118,9 +118,9 @@ void RC522_Handle(void)
     if(status == MI_OK)//选卡成功
     {
         status = MI_ERR;
-        // 验证A密钥 块地址 密码 SN 
-		// 注意：此处的块地址0x0B即2扇区3区块，此块地址只需要指向某一扇区就可以了，即2扇区为0x08-0x0B这个范围都有效，且只能对验证过的扇区进行读写操作
-        status = PcdAuthState(0x60, 0x0B, KEY_A, SN);
+        // 验证A密钥 块地址 密码 SN
+        // 注意：此处的块地址0x0B即2扇区3区块，此块地址只需要指向某一扇区就可以了，即2扇区为0x08-0x0B这个范围都有效，且只能对验证过的扇区进行读写操作
+        status = PcdAuthState(KEYA, 0x0B, KEY_A, SN);
         if(status == MI_OK)//验证成功
         {
             printf("PcdAuthState(A) success\r\n");
@@ -129,8 +129,8 @@ void RC522_Handle(void)
         {
             printf("PcdAuthState(A) failed\r\n");
         }
-		// 验证B密钥 块地址 密码 SN 
-		status = PcdAuthState(0x61, 0x0B, KEY_B, SN);
+        // 验证B密钥 块地址 密码 SN
+        status = PcdAuthState(KEYB, 0x0B, KEY_B, SN);
         if(status == MI_OK)//验证成功
         {
             printf("PcdAuthState(B) success\r\n");
@@ -165,8 +165,8 @@ void RC522_Handle(void)
     if(status == MI_OK)//读卡成功
     {
         status = MI_ERR;
-		printf("Write the card after 1 second. Do not move the card!!!\r\n");
-		delay_ms(1000);
+        printf("Write the card after 1 second. Do not move the card!!!\r\n");
+        delay_ms(1000);
         // status = PcdWrite(addr, DATA0);
         // 写数据到M1卡一块
         status = PcdWrite(addr, DATA1);
@@ -177,7 +177,7 @@ void RC522_Handle(void)
         else
         {
             printf("PcdWrite() failed\r\n");
-			delay_ms(3000);
+            delay_ms(3000);
         }
     }
 
@@ -205,7 +205,7 @@ void RC522_Handle(void)
     if(status == MI_OK)//读卡成功
     {
         status = MI_ERR;
-		printf("RC522_Handle() run finished after 1 second!\r\n");
+        printf("RC522_Handle() run finished after 1 second!\r\n");
         delay_ms(1000);
     }
 }
@@ -214,7 +214,7 @@ void RC522_Handle(void)
 void RC522_Handle1(void)
 {
     u8 i = 0;
-	unsigned char test_addr=0x0F;
+    unsigned char test_addr=0x0F;
     status = PcdRequest(PICC_REQALL,CT);//寻卡
 
     // printf("\r\nstatus>>>>>>%d\r\n", status);
@@ -241,7 +241,7 @@ void RC522_Handle1(void)
             card1_bit=1;
             printf("\r\nThe User is:card_1\r\n");
         }
-        
+
         status = PcdSelect(SN);
     }
     else
@@ -251,9 +251,9 @@ void RC522_Handle1(void)
     if(status == MI_OK)//选卡成功
     {
         status = MI_ERR;
-        // 验证A密钥 块地址 密码 SN 
-		// 注意：此处的块地址0x0F即3扇区3区块，此块地址只需要指向某一扇区就可以了，即3扇区为0x0C-0x0F这个范围都有效，且只能对验证过的扇区进行读写操作
-        status = PcdAuthState(0x60, test_addr, KEY_A, SN);
+        // 验证A密钥 块地址 密码 SN
+        // 注意：此处的块地址0x0F即3扇区3区块，此块地址只需要指向某一扇区就可以了，即3扇区为0x0C-0x0F这个范围都有效，且只能对验证过的扇区进行读写操作
+        status = PcdAuthState(KEYA, test_addr, KEY_A, SN);
         if(status == MI_OK)//验证成功
         {
             printf("PcdAuthState(A) success\r\n");
@@ -261,11 +261,11 @@ void RC522_Handle1(void)
         else
         {
             printf("PcdAuthState(A) failed\r\n");
-			status = MI_OK;
-			goto P1;
+            status = MI_OK;
+            goto P1;
         }
-		// 验证B密钥 块地址 密码 SN 
-		status = PcdAuthState(0x61, test_addr, KEY_B, SN);
+        // 验证B密钥 块地址 密码 SN
+        status = PcdAuthState(KEYB, test_addr, KEY_B, SN);
         if(status == MI_OK)//验证成功
         {
             printf("PcdAuthState(B) success\r\n");
@@ -309,17 +309,17 @@ void RC522_Handle1(void)
         else
         {
             printf("PcdWrite(RFID1) failed\r\n");
-			delay_ms(3000);
+            delay_ms(3000);
         }
     }
 
-P1:	
-	if(status == MI_OK)//写卡成功
+P1:
+    if(status == MI_OK)//写卡成功
     {
         status = MI_ERR;
-        // 验证A密钥 块地址 密码 SN 
-		// 注意：此处的块地址0x0F即3扇区3区块，此块地址只需要指向某一扇区就可以了，即3扇区为0x0C-0x0F这个范围都有效，且只能对验证过的扇区进行读写操作
-        status = PcdAuthState(0x60, test_addr, KEY_A1, SN);
+        // 验证A密钥 块地址 密码 SN
+        // 注意：此处的块地址0x0F即3扇区3区块，此块地址只需要指向某一扇区就可以了，即3扇区为0x0C-0x0F这个范围都有效，且只能对验证过的扇区进行读写操作
+        status = PcdAuthState(KEYA, test_addr, KEY_A1, SN);
         if(status == MI_OK)//验证成功
         {
             printf("PcdAuthState(A1) success\r\n");
@@ -328,8 +328,8 @@ P1:
         {
             printf("PcdAuthState(A1) failed\r\n");
         }
-		// 验证B密钥 块地址 密码 SN 
-		status = PcdAuthState(0x61, test_addr, KEY_B1, SN);
+        // 验证B密钥 块地址 密码 SN
+        status = PcdAuthState(KEYB, test_addr, KEY_B1, SN);
         if(status == MI_OK)//验证成功
         {
             printf("PcdAuthState(B1) success\r\n");
@@ -339,8 +339,8 @@ P1:
             printf("PcdAuthState(B1) failed\r\n");
         }
     }
-	
-	if(status == MI_OK)//验证成功
+
+    if(status == MI_OK)//验证成功
     {
         status = MI_ERR;
         // 读取M1卡一块数据 块地址 读取的数据 注意：因为上面验证的扇区是3扇区，所以只能对2扇区的数据进行读写，即0x0C-0x0F这个范围，超出范围读取失败。
@@ -360,8 +360,8 @@ P1:
             printf("PcdRead() failed\r\n");
         }
     }
-	
-	if(status == MI_OK)//读卡成功
+
+    if(status == MI_OK)//读卡成功
     {
         status = MI_ERR;
         // 写数据到M1卡一块
@@ -373,7 +373,7 @@ P1:
         else
         {
             printf("PcdWrite(RFID2) failed\r\n");
-			delay_ms(3000);
+            delay_ms(3000);
         }
     }
 
@@ -401,7 +401,7 @@ P1:
     if(status == MI_OK)//读卡成功
     {
         status = MI_ERR;
-		printf("RC522_Handle1() run finished after 1 second!\r\n");
+        printf("RC522_Handle1() run finished after 1 second!\r\n");
         delay_ms(1000);
     }
 }
@@ -409,29 +409,59 @@ P1:
 // 测试用数据爆破程序，仅供学习参考，请勿非法使用 针对card_0进行破解
 void RC522_data_break(void)
 {
-	// 爆破的块地址
-	unsigned char break_addr = 0x0F;
-	u8 i = 0;
-	/*
-	u8 key_arr[257] = {	0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 
-						0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F, 
-						0x20, 0x21, 0x22, 0x23, 0x24, 0x25, 0x26, 0x27, 0x28, 0x29, 0x2A, 0x2B, 0x2C, 0x2D, 0x2E, 0x2F, 
-						0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x3A, 0x3B, 0x3C, 0x3D, 0x3E, 0x3F, 
-						0x40, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48, 0x49, 0x4A, 0x4B, 0x4C, 0x4D, 0x4E, 0x4F, 
-						0x50, 0x51, 0x52, 0x53, 0x54, 0x55, 0x56, 0x57, 0x58, 0x59, 0x5A, 0x5B, 0x5C, 0x5D, 0x5E, 0x5F, 
-						0x60, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69, 0x6A, 0x6B, 0x6C, 0x6D, 0x6E, 0x6F, 
-						0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77, 0x78, 0x79, 0x7A, 0x7B, 0x7C, 0x7D, 0x7E, 0x7F, 
-						0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8A, 0x8B, 0x8C, 0x8D, 0x8E, 0x8F, 
-						0x90, 0x91, 0x92, 0x93, 0x94, 0x95, 0x96, 0x97, 0x98, 0x99, 0x9A, 0x9B, 0x9C, 0x9D, 0x9E, 0x9F, 
-						0xA0, 0xA1, 0xA2, 0xA3, 0xA4, 0xA5, 0xA6, 0xA7, 0xA8, 0xA9, 0xAA, 0xAB, 0xAC, 0xAD, 0xAE, 0xAF, 
-						0xB0, 0xB1, 0xB2, 0xB3, 0xB4, 0xB5, 0xB6, 0xB7, 0xB8, 0xB9, 0xBA, 0xBB, 0xBC, 0xBD, 0xBE, 0xBF, 
-						0xC0, 0xC1, 0xC2, 0xC3, 0xC4, 0xC5, 0xC6, 0xC7, 0xC8, 0xC9, 0xCA, 0xCB, 0xCC, 0xCD, 0xCE, 0xCF, 
-						0xD0, 0xD1, 0xD2, 0xD3, 0xD4, 0xD5, 0xD6, 0xD7, 0xD8, 0xD9, 0xDA, 0xDB, 0xDC, 0xDD, 0xDE, 0xDF, 
-						0xE0, 0xE1, 0xE2, 0xE3, 0xE4, 0xE5, 0xE6, 0xE7, 0xE8, 0xE9, 0xEA, 0xEB, 0xEC, 0xED, 0xEE, 0xEF, 
-						0xF0, 0xF1, 0xF2, 0xF3, 0xF4, 0xF5, 0xF6, 0xF7, 0xF8, 0xF9, 0xFA, 0xFB, 0xFC, 0xFD, 0xFE, 0xFF };
-	*/
-	u8 break_KEY[6]= {0, 0, 0, 0, 0, 0};
+    // 爆破的块地址
+    unsigned char break_addr = 0x13;
+    u8 i = 0;
+    u8 break_KEY[6]= {0, 0, 0, 0, 0, 0};
+    // 密码字符数组
+    u8 key_arr[257] = {
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+        16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
+        32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47,
+        48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63,
+        64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79,
+        80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95,
+        96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111,
+        112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127,
+        128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143,
+        144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159,
+        160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175,
+        176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191,
+        192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207,
+        208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223,
+        224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239,
+        240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255
+    };
 	
+	u8 key_arr2[257] = {
+		255, 254, 253, 252, 251, 250, 249, 248, 247, 246, 245, 244, 243, 242, 241, 240, 
+		239, 238, 237, 236, 235, 234, 233, 232, 231, 230, 229, 228, 227, 226, 225, 224, 
+		223, 222, 221, 220, 219, 218, 217, 216, 215, 214, 213, 212, 211, 210, 209, 208, 
+		207, 206, 205, 204, 203, 202, 201, 200, 199, 198, 197, 196, 195, 194, 193, 192, 
+		191, 190, 189, 188, 187, 186, 185, 184, 183, 182, 181, 180, 179, 178, 177, 176, 
+		175, 174, 173, 172, 171, 170, 169, 168, 167, 166, 165, 164, 163, 162, 161, 160, 
+		159, 158, 157, 156, 155, 154, 153, 152, 151, 150, 149, 148, 147, 146, 145, 144, 
+		143, 142, 141, 140, 139, 138, 137, 136, 135, 134, 133, 132, 131, 130, 129, 128, 
+		127, 126, 125, 124, 123, 122, 121, 120, 119, 118, 117, 116, 115, 114, 113, 112, 
+		111, 110, 109, 108, 107, 106, 105, 104, 103, 102, 101, 100, 99, 98, 97, 96, 
+		95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 80, 
+		79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 
+		63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 
+		47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 
+		31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 
+		15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0
+	};
+	
+    // 下标
+    u8 arr[6] = {0, 0, 0, 0, 0, 0};
+
+    /*
+    for(int i = 0; i <= 255; i++)
+    {
+        printf("%d, ", i);
+    }
+    */
+
     status = PcdRequest(PICC_REQALL,CT);//寻卡
 
     // printf("\r\nstatus>>>>>>%d\r\n", status);
@@ -453,12 +483,12 @@ void RC522_data_break(void)
             card0_bit=1;
             printf("\r\nThe User is:card_0\r\n");
         }
-		else
-		{
-			printf("\r\nThe User isn't:card_0\r\n");
-			return;
-		}
-        
+        else
+        {
+            printf("\r\nThe User isn't:card_0\r\n");
+            return;
+        }
+
         status = PcdSelect(SN);
     }
     else
@@ -468,34 +498,63 @@ void RC522_data_break(void)
     if(status == MI_OK)//选卡成功
     {
         status = MI_ERR;
-		
-		// 自由发挥 。。。
-		
-		// 验证A密钥 块地址 密码 SN 
-		// 注意：此处的块地址0x0F即3扇区3区块，此块地址只需要指向某一扇区就可以了，即3扇区为0x0C-0x0F这个范围都有效，且只能对验证过的扇区进行读写操作
-		status = PcdAuthState(0x60, break_addr, break_KEY, SN);
-		if(status == MI_OK)//验证成功
-		{
-			printf("PcdAuthState(A) success\r\n");
-		}
-		else
-		{
-			printf("PcdAuthState(A) failed\r\n");
-			status = MI_OK;
-		}
-		
-		// 验证B密钥 块地址 密码 SN 
-		status = PcdAuthState(0x61, break_addr, break_KEY, SN);
-		if(status == MI_OK)//验证成功
-		{
-			printf("PcdAuthState(B) success\r\n");
-		}
-		else
-		{
-			printf("PcdAuthState(B) failed\r\n");
-		}
+
+        // 自由发挥 。。。 我大概算了一下 全遍历差不多 需要循环281万亿次 我的stm32 1秒可以循环5次 那就要 56万亿秒 155亿小时 177万年
+        for(arr[0] = 0; arr[0] <= 255; arr[0]++)
+        {
+            for(arr[1] = 0; arr[1] <= 255; arr[1]++)
+            {
+                for(arr[2] = 0; arr[2] <= 255; arr[2]++)
+                {
+                    for(arr[3] = 0; arr[3] <= 255; arr[3]++)
+                    {
+                        for(arr[4] = 0; arr[4] <= 255; arr[4]++)
+                        {
+                            for(arr[5] = 0; arr[5] <= 255; arr[5]++)
+                            {
+                                // printf("%x%x%x%x%x%x, ", key_arr[arr[0]], key_arr[arr[1]], key_arr[arr[2]], key_arr[arr[3]], key_arr[arr[4]], key_arr[arr[5]]);
+                                break_KEY[0] = key_arr2[arr[0]];
+                                break_KEY[1] = key_arr2[arr[1]];
+                                break_KEY[2] = key_arr2[arr[2]];
+                                break_KEY[3] = key_arr2[arr[3]];
+                                break_KEY[4] = key_arr2[arr[4]];
+                                break_KEY[5] = key_arr2[arr[5]];
+
+                                // 验证A密钥 块地址 密码 SN
+                                // 注意：此处的块地址0x0F即3扇区3区块，此块地址只需要指向某一扇区就可以了，即3扇区为0x0C-0x0F这个范围都有效，且只能对验证过的扇区进行读写操作
+                                status = PcdAuthState(KEYA, break_addr, break_KEY, SN);
+                                if(status == MI_OK)//验证成功
+                                {
+                                    printf("PcdAuthState(A) success\r\n");
+                                    goto P1;
+                                }
+                                else
+                                {
+                                    // printf("PcdAuthState(A) failed\r\n");
+                                    printf(".");
+                                }
+
+                                // 验证B密钥 块地址 密码 SN
+                                status = PcdAuthState(KEYB, break_addr, break_KEY, SN);
+                                if(status == MI_OK)//验证成功
+                                {
+                                    printf("PcdAuthState(B) success\r\n");
+                                    goto P1;
+                                }
+                                else
+                                {
+                                    // printf("PcdAuthState(B) failed\r\n");
+                                    printf(",");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
+P1:
     if(status == MI_OK)//验证成功
     {
         status = MI_ERR;
@@ -759,7 +818,7 @@ void PcdAntennaOn ( void )
 
 /*
  * 函数名：PcdAntennaOff
- * 描述  ：开启天线
+ * 描述  ：关闭天线
  * 输入  ：无
  * 返回  : 无
  * 调用  ：内部调用
@@ -1124,8 +1183,8 @@ char PcdSelect ( u8 * pSnr )
  * 函数名：PcdAuthState
  * 描述  ：验证卡片密码
  * 输入  ：ucAuth_mode，密码验证模式
- *                     = 0x60，验证A密钥
- *                     = 0x61，验证B密钥
+ *                     = KEYA (0x60)，验证A密钥
+ *                     = KEYB (0x61)，验证B密钥
  *         u8 ucAddr，块地址
  *         pKey，密码
  *         pSnr，卡片序列号，4字节
@@ -1279,7 +1338,7 @@ void IC_CMT ( u8 * UID, u8 * KEY, u8 RW, u8 * Dat )
 
     PcdSelect ( UID );//选定卡
 
-    PcdAuthState ( 0x60, 0x10, KEY, UID );//校验
+    PcdAuthState ( KEYA, 0x10, KEY, UID );//校验
 
     if ( RW )//读写选择，1是读，0是写
         PcdRead ( 0x10, Dat );
@@ -1304,5 +1363,30 @@ void ShowID(u8 *p)
     }
     num[8] = 0;
     printf("ID>>>%s\r\n", num);
+}
+
+//等待卡离开
+void WaitCardOff(void)
+{
+    char status;
+    unsigned char	TagType[2];
+
+    while(1)
+    {
+        status = PcdRequest(REQ_ALL, TagType);
+        if(status)
+        {
+            status = PcdRequest(REQ_ALL, TagType);
+            if(status)
+            {
+                status = PcdRequest(REQ_ALL, TagType);
+                if(status)
+                {
+                    return;
+                }
+            }
+        }
+        delay_ms(1000);
+    }
 }
 

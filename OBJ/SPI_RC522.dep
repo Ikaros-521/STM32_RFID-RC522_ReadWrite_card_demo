@@ -1,5 +1,5 @@
 Dependencies for Project 'SPI', Target 'RC522': (DO NOT MODIFY !)
-F (.\main.c)(0x60826281)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\RFID -I ..\HARDWARE\LED-IC:\Users\Administrator\Desktop\RFID-RC522\USER\RTE\_RC522-ID:\KELI\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-ID:\KELI\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x608270D3)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE\RFID -I ..\HARDWARE\LED-IC:\Users\Administrator\Desktop\RFID-RC522\USER\RTE\_RC522-ID:\KELI\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-ID:\KELI\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\SYSTEM\delay\delay.h)(0x555AC82C)
 I (..\SYSTEM\sys\sys.h)(0x550F951C)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
